@@ -1,0 +1,22 @@
+.charCard {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    max-width: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    /* background: rgb(161, 214, 235); */
+}
+
+.charCard img {
+    width: 4rem;
+    border-radius: 0.5rem;
+}
+
+.charCard h3 {
+    margin: 0 0 0.2rem;
+    border-bottom: 1px solid black;
+}

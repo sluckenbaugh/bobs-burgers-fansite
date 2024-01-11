@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import SearchCharacter from "./components/SearchCharacter";
 import CharacterCard from "./components/CharacterCard";
+import Nav from "./components/Nav";
 
 export interface Character {
   id: number;
@@ -22,7 +22,10 @@ const App = () => {
         .then((data) =>
           search
             ? setCharacters(
-                data.filter((character: Character) => character.name === search)
+                data.filter(
+                  (character: Character) =>
+                    character.name.substring(0, 3) === search.substring(0, 3)
+                )
               )
             : setCharacters(data)
         );
@@ -30,10 +33,10 @@ const App = () => {
     getCharacters();
   }, [search]);
 
+  if (characters?.length === 0) return <p>No matching results</p>;
   return (
     <div>
-      <h1>Bob's Burgers</h1>
-      <SearchCharacter handleSearch={(input) => setSearch(input)} />
+      <Nav handleSearch={(input) => setSearch(input)} />
       {characters?.map((c) => (
         <CharacterCard key={c.id} character={c} />
       ))}

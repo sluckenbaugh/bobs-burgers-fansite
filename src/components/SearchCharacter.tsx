@@ -1,4 +1,5 @@
 import { FormEvent, useRef } from "react";
+import search from "../static/search.svg";
 
 interface Props {
   handleSearch: (input: string | undefined) => void;
@@ -14,8 +15,10 @@ const searchCharacter = ({ handleSearch }: Props) => {
           handleSearch(ref.current?.value);
         }}
       >
-        <input ref={ref} placeholder="Search a Character" />
-        <button>Search</button>
+        <input className="input" ref={ref} placeholder="Search a Character" />
+        <button className="btn">
+          <img src={search} alt="" />
+        </button>
       </form>
     </div>
   );

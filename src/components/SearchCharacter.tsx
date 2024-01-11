@@ -10,12 +10,13 @@ const searchCharacter = ({ handleSearch }: Props) => {
   return (
     <div>
       <form
+        className="search__bar"
         onSubmit={(e: FormEvent) => {
           e.preventDefault();
           handleSearch(ref.current?.value);
         }}
       >
-        <input className="input" ref={ref} placeholder="Search a Character" />
+        <input className="input" ref={ref} placeholder="Search Characters" />
         <button className="btn">
           <img src={search} alt="" />
         </button>

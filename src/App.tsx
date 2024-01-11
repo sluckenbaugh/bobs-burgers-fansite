@@ -37,9 +37,14 @@ const App = () => {
   return (
     <div>
       <Nav handleSearch={(input) => setSearch(input)} />
-      {characters?.map((c) => (
-        <CharacterCard key={c.id} character={c} />
-      ))}
+      <div className="header">
+        <h1 className="heading">Meet the Community!</h1>
+      </div>
+      <main className="container grid">
+        {characters?.map((c) => (
+          <CharacterCard key={c.id} character={c} />
+        ))}
+      </main>
     </div>
   );
 };

@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
 import CharacterCard from "./components/CharacterCard";
 import Nav from "./components/Nav";
-
+export interface Relative {
+  name: string;
+}
 export interface Character {
   id: number;
+  age: string;
   name: string;
   image: string;
+  gender: string;
+  hair: string;
+  firstEpisode: string;
+  voicedBy: string;
+  wikiUrl: string;
+  relatives: Relative[];
+  allOccupations: string[];
 }
 
 const App = () => {

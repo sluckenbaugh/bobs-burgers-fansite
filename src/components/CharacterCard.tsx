@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Character } from "../App";
 import "../index.css";
 
@@ -7,8 +8,10 @@ interface Props {
 const characterCard = ({ character }: Props) => {
   return (
     <section className="charCard">
-      <h3>{character?.name}</h3>
-      <img src={character?.image} alt={`image of ${character?.name}`} />
+      <Link className="link" to={`/character-details/${character?.id}`}>
+        <h3>{character?.name}</h3>
+        <img src={character?.image} alt={`image of ${character?.name}`} />
+      </Link>
     </section>
   );
 };

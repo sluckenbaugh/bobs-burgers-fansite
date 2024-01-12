@@ -48,9 +48,11 @@ const App = () => {
     <div>
       <Nav handleSearch={(input) => setSearch(input)} />
       <div className="header">
-        <h1 className="heading">Meet the Community!</h1>
+        <h1 data-aos="slide-left" className="heading">
+          Meet the Community!
+        </h1>
       </div>
-      <main className="container grid">
+      <main data-aos="fade-in" className="container grid">
         {characters?.map((c) => (
           <CharacterCard key={c.id} character={c} />
         ))}

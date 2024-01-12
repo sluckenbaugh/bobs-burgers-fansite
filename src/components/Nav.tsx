@@ -3,6 +3,7 @@ import burger from "../static/burger-solid.svg";
 import "../index.css";
 import SearchCharacter from "./SearchCharacter";
 import { useState } from "react";
+import Menu from "./Menu";
 
 interface Props {
   handleSearch: (input: string | undefined) => void;
@@ -14,12 +15,13 @@ const Nav = ({ handleSearch }: Props) => {
   return (
     <>
       <div className="nav">
-        <img className="logo" src={logo} alt="" />
+        <img data-aos="slide-right" className="logo" src={logo} alt="" />
         <SearchCharacter handleSearch={handleSearch} />
         <a onClick={() => setClicked(!clicked)} href="#">
           <img className="burger" src={burger} alt="" />
         </a>
       </div>
+      {clicked && <Menu />}
     </>
   );
 };

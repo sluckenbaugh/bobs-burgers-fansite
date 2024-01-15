@@ -46,13 +46,13 @@ const App = () => {
   if (characters?.length === 0) return <p>No matching results</p>;
   return (
     <div>
-      <Nav handleSearch={(input) => setSearch(input)} />
+      <Nav text="Characters" handleSearch={(input) => setSearch(input)} />
       <div className="header">
         <h1 data-aos="slide-left" className="heading">
-          Meet the Community!
+          MEET THE COMMUNITY!
         </h1>
       </div>
-      <main data-aos="fade-in" className="container grid">
+      <main className="container grid">
         {characters?.map((c) => (
           <CharacterCard key={c.id} character={c} />
         ))}

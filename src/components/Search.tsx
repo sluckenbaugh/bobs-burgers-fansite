@@ -3,8 +3,9 @@ import search from "../static/search.svg";
 
 interface Props {
   handleSearch: (input: string | undefined) => void;
+  text: string;
 }
-const searchCharacter = ({ handleSearch }: Props) => {
+const searchCharacter = ({ handleSearch, text }: Props) => {
   const ref = useRef<HTMLInputElement>(null);
 
   return (
@@ -16,7 +17,7 @@ const searchCharacter = ({ handleSearch }: Props) => {
           handleSearch(ref.current?.value);
         }}
       >
-        <input className="input" ref={ref} placeholder="Search Characters" />
+        <input className="input" ref={ref} placeholder={`Search ${text}`} />
         <button className="btn">
           <img src={search} alt="" />
         </button>

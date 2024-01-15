@@ -4,6 +4,8 @@
   --color-dark: rgb(30, 48, 80);
   --card-shadow: 1px 1px 6px 0px rgb(51, 50, 50);
   --card-radius: 0.5rem;
+  --font-shadow: "Rubik Doodle Shadow", system-ui;
+  --font-handwritten: "Coming Soon", cursive;
 }
 
 ::selection {
@@ -24,6 +26,8 @@ body {
     background-attachment: fixed;
 }
 
+/* Cards */
+
 .charCard {
     margin: 0.6rem;
     padding: var(--card-radius);
@@ -39,7 +43,6 @@ body {
     box-shadow: var(--card-shadow);
     transition: all 200ms ease-in;
     overflow: hidden;
-
 }
 .charCard:nth-of-type(odd):hover {
     transform: scale(1.20) rotate(-3.2deg);
@@ -56,8 +59,39 @@ body {
 
 .charCard h3 {
     margin: 0 0 0.2rem;
-    font-family: "Rubik Doodle Shadow", system-ui;
+    font-family: var(--font-shadow);
 }
+
+.storeCard {
+    margin: 1rem;
+    padding: 0.5rem 1rem 0;
+    border-radius: var(--card-radius);
+    max-width: 10rem;
+    min-width: 9rem;
+    /* max-height: 11rem; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    background: #fff;
+    box-shadow: var(--card-shadow);
+    transition: all 200ms ease-in;
+    overflow: hidden;
+}
+.storeCard h3 {
+    margin: 0 0 0.2rem;
+    font-family: var(--font-shadow);
+}
+.storeCard img {
+    margin-top: 0.5rem;
+    width: 10rem;
+    border-radius: 0.2rem;
+}
+.storeCard p {
+    font-family: var(--font-handwritten);
+}
+/* Headers */
 .header {
     display: flex;
     justify-content: center;
@@ -65,12 +99,11 @@ body {
 .heading {
     text-align: center;
     margin: 1rem 0 0;
-    font-family: "Rubik Doodle Shadow", system-ui;
+    font-family: var(--font-shadow);
     width: max-content;
     padding: 0.2rem 1rem;
     font-size: 1.8rem;
-    z-index: -1;
-    
+    z-index: -1;  
 }
 
 /* Navbar */
@@ -230,7 +263,7 @@ body {
     justify-items: center;
     background-color: #fff;
     width: 100%;
-    font-family: "Rubik Doodle Shadow", system-ui;
+    font-family: var(--font-shadow);
     border-radius: var(--card-radius);
     box-shadow: var(--card-shadow);
     padding: 0.3rem 0.5rem;
@@ -243,7 +276,7 @@ body {
     background-size: contain;
     padding: 1rem;
     border-radius: 3px;
-    font-family: "Coming Soon", cursive;
+    font-family: var(--font-handwritten);
 }
 
 .card__body ul {
@@ -294,7 +327,7 @@ body {
 }
 
 .menu__link {
-    font-family: "Coming Soon", cursive;
+    font-family: var(--font-handwritten);
     text-decoration: none;
     color: #000;
 }

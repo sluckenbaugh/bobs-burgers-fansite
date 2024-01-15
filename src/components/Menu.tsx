@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 const Menu = () => {
   return (
     <div className="menu" data-aos="slide-left">
-      <Link className="menu__link" to="/About">
-        Hello
+      <Link className="menu__link" to="/StoreNextDoor">
+        Store Next Door
       </Link>
       <Link className="menu__link" to="/About">
         What's Next

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import StoreCard from "./components/StoreCard";
 import Nav from "./components/Nav";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 export interface StoreNextDoor {
   id: number;
   name: string;
@@ -10,9 +12,12 @@ export interface StoreNextDoor {
   season: number;
 }
 
-const About = () => {
+const seasons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+
+const StoreNextDoor = () => {
   const [stores, setStores] = useState<StoreNextDoor[]>();
   const [searchStores, setSearchStores] = useState<string>();
+  const [season, setSeason] = useState<number>();
 
   useEffect(() => {
     const getStores = async () => {
@@ -36,21 +41,93 @@ const About = () => {
 
   if (stores?.length === 0) return <p>No Matching Results</p>;
 
+  // slider settings
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 800,
+    slidesToShow: 4,
+    slidesToScroll: 2,
+    // initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 775,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 575,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <div>
+    <>
       <Nav text="Stores" handleSearch={(input) => setSearchStores(input)} />
-      <div className="header">
-        <h1 data-aos="slide-left" className="heading">
-          STORE NEXT DOOR
-        </h1>
+      <div className="backdrop">
+        <div>
+          <div className="info__block">
+            <div className="header--secondary">
+              <h1 className="heading--secondary">STORE NEXT DOOR</h1>
+            </div>
+            <article className="store__description">
+              <p>
+                The Store next Door is the storefront next to Bob's Burgers on
+                the opposing side from Mort's "It's Your Funeral Home &
+                Crematorium". Similar to "It's Your Funeral," this storefront
+                also features clever word play, but unlike the Belchers'
+                long-time steady neighbor Mort, it is a revolving door of
+                businesses, often so temporary the sign is crudely painted on a
+                cloth banner. A different business is shown to occupy this
+                storefront in every episode, and thus it is one of the running
+                gags in the show.
+              </p>
+              <span className="attribution">
+                - DizzyDog, Bob's Burgers Wiki December 2023
+              </span>
+            </article>
+            <div className="select__container">
+              <select
+                className="select"
+                onChange={(e) => setSeason(parseInt(e.target.value))}
+              >
+                <option value="0">All Seasons</option>
+                {seasons.map((season) => (
+                  <option key={season} value={season}>
+                    {`Season ${season}`}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <main className="slider__container">
+            <Slider className="slider" {...settings}>
+              {season
+                ? stores
+                    ?.filter((store) => store.season === season)
+                    .map((store) => <StoreCard key={store.id} store={store} />)
+                : stores?.map((store) => (
+                    <StoreCard key={store.id} store={store} />
+                  ))}
+            </Slider>
+          </main>
+        </div>
       </div>
-      <main className="container grid">
-        {stores?.map((store) => (
-          <StoreCard key={store.id} store={store} />
-        ))}
-      </main>
-    </div>
+    </>
   );
 };
 
-export default About;
+export default StoreNextDoor;

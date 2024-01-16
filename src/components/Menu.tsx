@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
-    <div className="menu" data-aos="slide-left">
+    <div className="menu" data-aos="flip-left">
+      <Link className="menu__link" to="/burger">
+        Burger of the Day
+      </Link>
       <Link className="menu__link" to="/StoreNextDoor">
         Store Next Door
-      </Link>
-      <Link className="menu__link" to="/About">
-        What's Next
       </Link>
       <Link className="menu__link" to="/About">
         Episodes

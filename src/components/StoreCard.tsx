@@ -9,7 +9,7 @@ const StoreCard = ({ store }: Props) => {
       <h3>{store.name}</h3>
       <img src={store.image} alt="" />
       <p>
-        Season: {store.season} Episode: {store.episode}
+        Season {store.season} Episode {store.episode}
       </p>
     </section>
   );

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import NavSimple from "./components/NavSimple";
 import { useEffect, useState } from "react";
-import { Character } from "./App";
+import { Character } from "./Home";
 import CharacterDetailCard from "./components/CharacterDetailCard";
 
 const CharDetails = () => {

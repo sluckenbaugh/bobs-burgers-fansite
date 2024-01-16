@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Character } from "../App";
+import { Character } from "../Home";
 import "../index.css";
 
 interface Props {

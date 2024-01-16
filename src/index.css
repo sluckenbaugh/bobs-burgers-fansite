@@ -6,6 +6,8 @@
   --card-radius: 0.5rem;
   --font-shadow: "Rubik Doodle Shadow", system-ui;
   --font-handwritten: "Coming Soon", cursive;
+  --sky: linear-gradient(545deg, rgba(135,206,235,1) 100%, rgba(45,118,253,0.9388349089635855) 100%);
+  --sun: linear-gradient(171deg, rgba(246,224,42,1) 45%, rgba(246,139,42,1) 96%);
 }
 
 ::selection {
@@ -129,7 +131,6 @@ body {
     right: 1rem;
     top: 0.5rem;
     transition: all 300ms ease-in;
-    
 }
 .burger:hover {
     transform: scale(1.17);
@@ -143,13 +144,12 @@ body {
     padding: 0.3rem 1rem;
     align-items: center;
     border-bottom: 2.5px solid var(--color-dark);
-    /* opacity: 0.85; */
-    /* margin: 0 1.2rem; */
-    /* position: sticky;
-    top: 0; */
-    background: rgb(135,206,235);
-    background: linear-gradient(545deg, rgba(135,206,235,1) 100%, rgba(45,118,253,0.9388349089635855) 100%);
-    
+}
+.nav.sky {
+    background: var(--sky)
+}
+.nav.sun {
+    background: var(--sun)
 }
 
 .input {

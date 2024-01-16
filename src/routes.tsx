@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "./App";
 import CharDetails from "./CharDetails";
 import StoreNextDoor from "./StoreNextDoor";
 import Burger from "./Burger";
+import Home from "./Home";
 
 const router = createBrowserRouter([
-  { path: "/", element: <App /> },
+  { path: "/", element: <Home /> },
   { path: "/character-details/:id", element: <CharDetails /> },
   { path: "/StoreNextDoor", element: <StoreNextDoor /> },
   { path: "/burger", element: <Burger /> },

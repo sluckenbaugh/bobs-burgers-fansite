@@ -1,4 +1,4 @@
-import { Character } from "../App";
+import { Character } from "../Home";
 
 interface Props {
   character: Character;

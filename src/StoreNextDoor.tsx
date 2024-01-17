@@ -48,6 +48,11 @@ const StoreNextDoor = () => {
 
   if (stores?.length === 0) return <p>No Matching Results</p>;
 
+  const pic = stores?.find(
+    (store) => store.name === "FUGGETTABOUTIT HARD DRIVE ERASING"
+  );
+  console.log(pic);
+
   // slider settings
   const settings = {
     dots: false,
@@ -57,7 +62,7 @@ const StoreNextDoor = () => {
     slidesToScroll: 2,
     responsive: [
       {
-        breakpoint: 1000,
+        breakpoint: 1300,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 1,
@@ -83,53 +88,60 @@ const StoreNextDoor = () => {
   return (
     <>
       <Nav text="Stores" handleSearch={(input) => setSearchStores(input)} />
-      <div className="backdrop">
-        <div>
-          <div className="info__block">
-            <div className="header--secondary">
-              <h1 className="heading--secondary">STORE NEXT DOOR</h1>
-            </div>
-            <article className="store__description">
-              <p>
-                The Store next Door is the storefront next to Bob's Burgers on
-                the opposing side from Mort's "It's Your Funeral Home &
-                Crematorium". Similar to "It's Your Funeral," this storefront
-                also features clever word play, but unlike the Belchers'
-                long-time steady neighbor Mort, it is a revolving door of
-                businesses, often so temporary the sign is crudely painted on a
-                cloth banner. A different business is shown to occupy this
-                storefront in every episode, and thus it is one of the running
-                gags in the show.
-              </p>
-              <span className="attribution">
-                - DizzyDog, Bob's Burgers Wiki December 2023
-              </span>
-            </article>
-            <div className="select__container">
-              <select
-                className="select"
-                onChange={(e) => setSeason(parseInt(e.target.value))}
-              >
-                <option value="0">All Seasons</option>
-                {seasons.map((season) => (
-                  <option key={season} value={season}>
-                    {`Season ${season}`}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-          <main className="slider__container">
-            <Slider className="slider" {...settings}>
-              {season
-                ? stores
-                    ?.filter((store) => store.season === season)
-                    .map((store) => <StoreCard key={store.id} store={store} />)
-                : stores?.map((store) => (
-                    <StoreCard key={store.id} store={store} />
+      <div className="grid-left">
+        <div className="backdrop">
+          <div>
+            <div className="info__block">
+              <div className="header--secondary">
+                <h1 className="heading--secondary">STORE NEXT DOOR</h1>
+              </div>
+
+              <div className="select__container">
+                <select
+                  className="select"
+                  onChange={(e) => setSeason(parseInt(e.target.value))}
+                >
+                  <option value="0">All Seasons</option>
+                  {seasons.map((season) => (
+                    <option key={season} value={season}>
+                      {`Season ${season}`}
+                    </option>
                   ))}
-            </Slider>
-          </main>
+                </select>
+              </div>
+            </div>
+            <main className="slider__container">
+              <Slider className="slider" {...settings}>
+                {season
+                  ? stores
+                      ?.filter((store) => store.season === season)
+                      .map((store) => (
+                        <StoreCard key={store.id} store={store} />
+                      ))
+                  : stores?.map((store) => (
+                      <StoreCard key={store.id} store={store} />
+                    ))}
+              </Slider>
+            </main>
+          </div>
+        </div>
+        <div className="right__block">
+          <img className="store__pic" src={pic?.image} alt="" />
+          <article className="store__description">
+            <p>
+              The Store next Door is the storefront next to Bob's Burgers on the
+              opposing side from Mort's "It's Your Funeral Home & Crematorium".
+              Similar to "It's Your Funeral," this storefront also features
+              clever word play, but unlike the Belchers' long-time steady
+              neighbor Mort, it is a revolving door of businesses, often so
+              temporary the sign is crudely painted on a cloth banner. A
+              different business is shown to occupy this storefront in every
+              episode, and thus it is one of the running gags in the show.
+            </p>
+            <span className="attribution">
+              - DizzyDog, Bob's Burgers Wiki December 2023
+            </span>
+          </article>
         </div>
       </div>
     </>

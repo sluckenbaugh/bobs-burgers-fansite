@@ -1,12 +1,14 @@
 import { useParams } from "react-router-dom";
 import NavSimple from "./components/NavSimple";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Character } from "./Home";
 import CharacterDetailCard from "./components/CharacterDetailCard";
+import { ColorContext } from "./App";
 
 const CharDetails = () => {
   const params = useParams();
   const id = parseInt(params.id!);
+  const { color } = useContext(ColorContext);
 
   const [character, setCharacter] = useState<Character>();
 

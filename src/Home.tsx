@@ -23,7 +23,8 @@ export interface Character {
 const Home = () => {
   const [characters, setCharacters] = useState<Character[]>();
   const [search, setSearch] = useState<string>();
-  const color = useContext(ColorContext);
+  const { color } = useContext(ColorContext);
+  const prev = color === "sky" ? "sun" : "sky";
 
   useEffect(() => {
     // fetch function
@@ -46,21 +47,27 @@ const Home = () => {
     getCharacters();
   }, [search]);
 
+  useEffect(() => {
+    document.body.classList.replace(prev, color);
+  }, [color]);
+
   if (characters?.length === 0) return <p>No matching results</p>;
   return (
-    <div>
-      <Nav text="Characters" handleSearch={(input) => setSearch(input)} />
-      <div className="header">
-        <h1 data-aos="slide-left" className="heading">
-          MEET THE COMMUNITY!
-        </h1>
+    <>
+      <div className={color}>
+        <Nav text="Characters" handleSearch={(input) => setSearch(input)} />
+        <div className="header">
+          <h1 data-aos="slide-left" className="heading">
+            MEET THE COMMUNITY!
+          </h1>
+        </div>
+        <main className="container grid">
+          {characters?.map((c) => (
+            <CharacterCard key={c.id} character={c} />
+          ))}
+        </main>
       </div>
-      <main className="container grid">
-        {characters?.map((c) => (
-          <CharacterCard key={c.id} character={c} />
-        ))}
-      </main>
-    </div>
+    </>
   );
 };
 

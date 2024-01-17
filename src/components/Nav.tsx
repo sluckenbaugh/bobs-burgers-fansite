@@ -18,14 +18,18 @@ const Nav = ({ handleSearch, text }: Props) => {
 
   return (
     <>
-      <div className={`nav ${color}`}>
+      <div className={`nav nav-${color}`}>
         <Link to="/">
           <img data-aos="slide-right" className="logo" src={logo} alt="" />
         </Link>
         <Search text={text} handleSearch={handleSearch} />
-        <button onClick={() => setColor(color === "sky" ? "sun" : "sky")}>
-          Color
-        </button>
+        <label className="switch">
+          <input
+            onClick={() => setColor(color === "sky" ? "sun" : "sky")}
+            type="checkbox"
+          />
+          <span className={`toggle round ${!color}`}></span>
+        </label>
         <a onClick={() => setClicked(!clicked)} href="#">
           <img className="burger" src={burger} alt="" />
         </a>

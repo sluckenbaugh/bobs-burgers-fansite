@@ -5,16 +5,16 @@ import react, { createContext } from "react";
 
 export const ColorContext = createContext({
   color: "sky",
-  setColor: (color: "sky" | "sun") => {},
+  setColor: (color: string) => {},
 });
 
 const App = () => {
   const [color, setColor] = useState("sky");
-
+  document.body.classList.add("sky");
   return (
     <>
       <ColorContext.Provider value={{ color, setColor }}>
-        <RouterProvider router={router} />;
+        <RouterProvider router={router} />
       </ColorContext.Provider>
     </>
   );

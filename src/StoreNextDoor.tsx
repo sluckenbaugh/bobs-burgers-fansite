@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import StoreCard from "./components/StoreCard";
 import Nav from "./components/Nav";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { ColorContext } from "./App";
 export interface StoreNextDoor {
   id: number;
   name: string;
@@ -18,6 +19,8 @@ const StoreNextDoor = () => {
   const [stores, setStores] = useState<StoreNextDoor[]>();
   const [searchStores, setSearchStores] = useState<string>();
   const [season, setSeason] = useState<number>();
+  const { color } = useContext(ColorContext);
+  const prev = color === "sky" ? "sun" : "sky";
 
   useEffect(() => {
     const getStores = async () => {
@@ -39,6 +42,10 @@ const StoreNextDoor = () => {
     getStores();
   }, [searchStores]);
 
+  useEffect(() => {
+    document.body.classList.replace(prev, color);
+  }, [color]);
+
   if (stores?.length === 0) return <p>No Matching Results</p>;
 
   // slider settings
@@ -48,7 +55,6 @@ const StoreNextDoor = () => {
     speed: 800,
     slidesToShow: 4,
     slidesToScroll: 2,
-    // initialSlide: 0,
     responsive: [
       {
         breakpoint: 1000,

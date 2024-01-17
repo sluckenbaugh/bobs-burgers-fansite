@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { ColorContext } from "./App";
+import store from "./static/store.png";
 export interface StoreNextDoor {
   id: number;
   name: string;
@@ -48,10 +49,6 @@ const StoreNextDoor = () => {
   }, [color]);
 
   if (stores?.length === 0) return <p>No Matching Results</p>;
-
-  const pic = stores?.find(
-    (store) => store.name === "FUGGETTABOUTIT HARD DRIVE ERASING"
-  );
 
   // slider settings
   const settings = {
@@ -126,7 +123,7 @@ const StoreNextDoor = () => {
           </div>
         </div>
         <div className="right__block">
-          <img className="store__pic" src={pic?.image} alt="" />
+          <img className="store__pic" src={store} alt="" />
           <article className="store__description">
             <p>
               The Store next Door is the storefront next to Bob's Burgers on the

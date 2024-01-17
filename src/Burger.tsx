@@ -1,7 +1,17 @@
+import { useContext, useEffect } from "react";
+import { ColorContext } from "./App";
 import NavSimple from "./components/NavSimple";
 import burger from "./static/burger-sign.jpg";
+import usePreviousColor from "./Hooks/usePreviousColor";
 
 const Burger = () => {
+  const { color } = useContext(ColorContext);
+
+  useEffect(() => {
+    const prev = usePreviousColor(color);
+    document.body.classList.replace(prev, color);
+  }, [color]);
+
   return (
     <>
       <NavSimple />

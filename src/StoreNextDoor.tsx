@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { ColorContext } from "./App";
 import store from "./static/store.png";
+import usePreviousColor from "./Hooks/usePreviousColor";
 export interface StoreNextDoor {
   id: number;
   name: string;
@@ -21,7 +22,6 @@ const StoreNextDoor = () => {
   const [searchStores, setSearchStores] = useState<string>();
   const [season, setSeason] = useState<number>();
   const { color } = useContext(ColorContext);
-  const prev = color === "sky" ? "sun" : "sky";
 
   useEffect(() => {
     const getStores = async () => {
@@ -45,10 +45,9 @@ const StoreNextDoor = () => {
   }, [searchStores]);
 
   useEffect(() => {
+    const prev = usePreviousColor(color);
     document.body.classList.replace(prev, color);
   }, [color]);
-
-  if (stores?.length === 0) return <p>No Matching Results</p>;
 
   // slider settings
   const settings = {
@@ -85,6 +84,11 @@ const StoreNextDoor = () => {
   return (
     <>
       <Nav text="Stores" handleSearch={(input) => setSearchStores(input)} />
+      {stores?.length === 0 && (
+        <div className="message__container">
+          <p>Sorry, No Matching results.</p>
+        </div>
+      )}
       <div className="grid-left">
         <div className="backdrop">
           <div>

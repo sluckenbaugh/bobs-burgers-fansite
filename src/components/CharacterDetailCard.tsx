@@ -18,7 +18,9 @@ const CharacterDetailCard = ({ character }: Props) => {
         <div className="card__body" data-aos="slide-left">
           {character.age && <p>- Age: {character.age?.substring(0, 2)}</p>}
           {character.allOccupations.length > 0 &&
-            character.allOccupations?.map((o) => <p>- Occupation: {o}</p>)}
+            character.allOccupations?.map((o) => (
+              <p key={o}>- Occupation: {o}</p>
+            ))}
           {character.firstEpisode && (
             <p>- First Appearance: {character.firstEpisode}</p>
           )}
@@ -27,7 +29,7 @@ const CharacterDetailCard = ({ character }: Props) => {
             <ul>
               <p>- Relatives: </p>
               {character.relatives.map((r) => (
-                <li>{r.name}</li>
+                <li key={r.name}>{r.name}</li>
               ))}
             </ul>
           )}

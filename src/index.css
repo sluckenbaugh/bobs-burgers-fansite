@@ -586,6 +586,9 @@ input:checked + .toggle:before {
     color: rgba(45,118,253,0.9388349089635855) !important;
     font-size: 1.6rem !important;   
 }
+.slick-slide.slick-active.slick-cloned{
+    display: none;
+}
 
 
 

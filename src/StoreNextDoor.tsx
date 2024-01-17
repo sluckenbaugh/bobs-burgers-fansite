@@ -33,7 +33,8 @@ const StoreNextDoor = () => {
             ? setStores(
                 data.filter(
                   (store) =>
-                    store.name.substring(0, 1) === searchStores.substring(0, 1)
+                    store.name.substring(0, 3).toUpperCase() ===
+                    searchStores.substring(0, 3).toUpperCase()
                 )
               )
             : setStores(data.filter((store) => store.name))
@@ -51,7 +52,6 @@ const StoreNextDoor = () => {
   const pic = stores?.find(
     (store) => store.name === "FUGGETTABOUTIT HARD DRIVE ERASING"
   );
-  console.log(pic);
 
   // slider settings
   const settings = {

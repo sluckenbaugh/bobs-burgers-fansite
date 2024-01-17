@@ -92,7 +92,6 @@ const StoreNextDoor = () => {
               <div className="header--secondary">
                 <h1 className="heading--secondary">STORE NEXT DOOR</h1>
               </div>
-
               <div className="select__container">
                 <select
                   className="select"

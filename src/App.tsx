@@ -5,7 +5,9 @@ import { createContext } from "react";
 
 export const ColorContext = createContext({
   color: "sky",
-  setColor: (color: string) => {},
+  setColor: (color: string) => {
+    color;
+  },
 });
 
 const App = () => {

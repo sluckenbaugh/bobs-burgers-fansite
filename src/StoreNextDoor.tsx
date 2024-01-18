@@ -55,7 +55,7 @@ const StoreNextDoor = () => {
     infinite: true,
     speed: 800,
     slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToScroll: 1,
     responsive: [
       {
         breakpoint: 1300,

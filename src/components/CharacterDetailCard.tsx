@@ -12,7 +12,7 @@ const CharacterDetailCard = ({ character }: Props) => {
           {character.name.length > 20 ? (
             <h2 className="big__name">{character.name}</h2>
           ) : (
-            <h2>{character.name}</h2>
+            <h2 className="small__name">{character.name}</h2>
           )}
         </div>
         <div className="card__body" data-aos="slide-left">

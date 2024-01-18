@@ -12,7 +12,7 @@ const NavSimple = () => {
 
   return (
     <>
-      <div className={`nav nav-${color}`}>
+      <div className={`nav nav-simple nav-${color}`}>
         <Link to="/">
           <img data-aos="slide-right" className="logo" src={logo} alt="" />
         </Link>

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import NavSimple from "./components/NavSimple";
 import { ColorContext } from "./App";
 import usePreviousColor from "./Hooks/usePreviousColor";

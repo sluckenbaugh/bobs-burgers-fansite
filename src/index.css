@@ -24,13 +24,13 @@ body {
     margin: 0;
 }
 .sky {
-    background: rgb(135,206,235);
+    /* background: rgb(135,206,235); */
     background: linear-gradient(53deg, rgba(135,206,235,1) 55%, rgba(45,118,253,0.9388349089635855) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed; 
 }
 .sun {
-    background: rgb(246,224,42);
+    /* background: rgb(246,224,42); */
     background: linear-gradient(220deg, rgba(246,224,42,1) 45%, rgba(246,139,42,1) 96%);
     background-repeat: repeat;
     background-attachment: fixed;
@@ -193,7 +193,7 @@ body {
     color: var(--color-dark);
     padding: 0.3rem;
     max-width: 7.3rem;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
 }
 .search__bar {
     padding: 0.1rem 0.4rem;
@@ -595,7 +595,7 @@ input:checked + .toggle:before {
     align-items: center;
     grid-template-rows: 35% 1fr;
     margin: 0;
-    height: 22rem;
+    height: 26.5rem;
 }
 @media (min-width: 395px) {
     .article-1 {
@@ -641,7 +641,7 @@ input:checked + .toggle:before {
 }
 
 .article-1 img {
-    height: 80%;
+    height: 83%;
 }
 
 .about .article-2 {

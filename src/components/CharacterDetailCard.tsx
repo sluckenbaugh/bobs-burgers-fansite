@@ -8,7 +8,11 @@ const CharacterDetailCard = ({ character }: Props) => {
     <div className="detail__container">
       <div className="detail__card">
         <div className="card__header">
-          <img className="detail__image" src={character.image} alt="" />
+          <img
+            className="detail__image"
+            src={character.image}
+            alt={`image of ${character?.name}`}
+          />
           {character.name.length > 20 ? (
             <h2 className="big__name">{character.name}</h2>
           ) : (

@@ -19,7 +19,7 @@ const searchCharacter = ({ handleSearch, text }: Props) => {
       >
         <input className="input" ref={ref} placeholder={`Search ${text}`} />
         <button className="btn">
-          <img src={search} alt="" />
+          <img src={search} alt="search" />
         </button>
       </form>
     </div>

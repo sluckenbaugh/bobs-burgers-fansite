@@ -20,7 +20,7 @@ const About = () => {
         <h1 className="heading--about">About</h1>
         <main className="about">
           <div className="article-1">
-            <img src={bob} alt="" />
+            <img src={bob} alt="Chef Bob" />
             <article>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
               maiores impedit minima quibusdam eligendi dolorum labore
@@ -53,7 +53,7 @@ const About = () => {
             consequuntur. Enim, debitis quas.
           </article>
         </main>
-        <img className="burgers" src={burgers} alt="" />
+        <img className="burgers" src={burgers} alt="Picture of hamburger" />
       </div>
     </div>
   );

@@ -126,7 +126,11 @@ const StoreNextDoor = () => {
           </div>
         </div>
         <div className="right__block">
-          <img className="store__pic" src={store} alt="" />
+          <img
+            className="store__pic"
+            src={store}
+            alt="image of fuggettaboutit Hard Drive Erasing store next door"
+          />
           <article className="store__description">
             <p>
               The Store next Door is the storefront next to Bob's Burgers on the

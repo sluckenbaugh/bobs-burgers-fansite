@@ -7,7 +7,7 @@ const StoreCard = ({ store }: Props) => {
   return (
     <section className="storeCard">
       <h3>{store.name}</h3>
-      <img src={store.image} alt="" />
+      <img src={store.image} alt={`image of ${store.name}`} />
       <p>
         Season {store.season} Episode {store.episode}
       </p>

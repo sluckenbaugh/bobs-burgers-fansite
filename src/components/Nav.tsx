@@ -18,22 +18,28 @@ const Nav = ({ handleSearch, text }: Props) => {
 
   return (
     <>
-      <div className={`nav nav-${color}`}>
+      <nav className={`nav nav-${color}`}>
         <Link to="/">
-          <img data-aos="slide-right" className="logo" src={logo} alt="" />
+          <img
+            data-aos="slide-right"
+            className="logo"
+            src={logo}
+            alt="Bob's burgers Logo"
+          />
         </Link>
         <Search text={text} handleSearch={handleSearch} />
         <label className="switch">
           <input
             onClick={() => setColor(color === "sky" ? "sun" : "sky")}
             type="checkbox"
+            aria-label="search"
           />
           <span className={`toggle round ${!color}`}></span>
         </label>
         <a onClick={() => setClicked(!clicked)} href="#">
-          <img className="burger" src={burger} alt="" />
+          <img className="burger" src={burger} alt="Hamburger Dropdown Menu" />
         </a>
-      </div>
+      </nav>
       {clicked && <Menu />}
     </>
   );
